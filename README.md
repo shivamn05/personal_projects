@@ -46,7 +46,7 @@ These routes direct respective users to their respective homepages. The differen
 
 As for the toolbar, the differences are coded in **_layout.html_** from line 32 to line 76. If the user ID used to log in starts with an m, the manager toolbar is shown, with multiple dropdowns. The dropdowns include Personal (book, bookings, and history), Timesheets (booking chart and history), and Employees (register and manage). The employee toolbar is much simpler, with just the basic functions of booking and viewing.
 
-#### b. <ins>/, /change, /register, and /logout</ins>
+#### b. <ins> /, /change, /register, and /logout</ins>
 #####
 These routes are responsible for accessibility to Toolie via user's accounts.
 
