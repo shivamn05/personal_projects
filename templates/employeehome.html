@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<h1 class="home-head">
+    WELCOME TO THE EMPLOYEE HOME PAGE
+</h1>
+<h2 class="home-body">
+    <p class="home-space">Quick Access</p>
+    <div>
+        <button class="home-button" id="bookToolButton" href="/book">Book Tool</button>
+        <button class="home-button" id="viewBookingButton" href="/bookings">View Bookings</button>
+        <button class="home-button" id="historyButton" href="/bookinghistory">View History</button>
+    </div>
+    <div>
+        <p class="home-space">Account Management</p>
+        <button class="home-button" id="viewChangeButton" href="/change">Change Password</button>
+    </div>
+</h2>
+
+<!-- From GitHub Copilot-->
+<script>
+    document.getElementById('bookToolButton').addEventListener('click', function() {
+        window.location.href = '/book';
+    });
+
+    document.getElementById('viewBookingButton').addEventListener('click', function() {
+        window.location.href = '/bookings';
+    });
+
+    document.getElementById('historyButton').addEventListener('click', function() {
+        window.location.href = '/bookinghistory';
+    });
+
+    document.getElementById('viewChangeButton').addEventListener('click', function() {
+        window.location.href = '/change';
+    });
+</script>
+{% endblock %}

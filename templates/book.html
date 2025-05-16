@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book Tool
+{% endblock %}
+
+{% block main %}
+    <h2 class="home-body">
+        <p class="home-space">Book a <span class="purple">Tooli</span><span class="blue">E</span> tool</p>
+    </h2>
+    <div class="mb-3 container">
+        <div class="section">
+            <form action="/book" method="post">
+                <select class="toolbar" name="tool">
+                    <option disabled selected>Select a tool</option>
+                    {% for letter in letters %}
+                    <option value="{{ letter }}">
+                        {{ letter }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <select class="toolbar" name="date" method="post">
+                    <option disabled selected>Choose date</option>
+                    {% for date in dates %}
+                    <option value="{{ date.value }}">
+                        {{ date.label }}
+                    </option>
+                    {% endfor %}
+                </select>
+                <!--Source: ChatGPT-->
+                <select class="toolbar" name="timeslot">
+                    <option disabled selected>Choose timeslot</option>
+                    {% for hour in range(9, 17) %}
+                    <option value="{{ ("%02d:00" % hour) }}">
+                        {{ ("%02d:00" % hour) }} - {{ ("%02d:00" % (hour + 1)) }}
+                    </option>                    
+                    {% endfor %}
+                </select>                  
+                <input type="submit" value="Book">
+            </form>
+        </div>
+    </div>
+{% endblock %}

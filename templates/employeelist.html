@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Employees
+{% endblock %}
+
+{% block main %}
+<h2 class="home-body">
+    <p class="home-space">Current employees in the <span class="purple">Tooli</span><span class="blue">E</span> system</p>
+</h2>
+<p><input class="searchbar" type="text" id="searchInput" placeholder="Search..."></p>
+<div class="mb-3">
+    <table class="table table-hover" id="employeeTable">
+        <thead>
+            <tr>
+                <th class="text-start" scope="col">#</th>
+                <th class="text-center" scope="col">Name</th>
+                <th class="text-center" scope="col">User ID</th>
+                <th class="text-end" scope="col">Remove</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td class="text-start">{{ loop.index }}</td>
+                <td class="text-center">{{ user.username }}</td>
+                <td class="text-center">{{ user.user_id }}</td>
+                <td class="text-end">
+                    <form action="/remove" method="post"><input type="submit" value="&#10005;">
+                        <input name="user_id" hidden value={{user.user_id}}>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- From ChatGPT -->
+<script>
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#employeeTable tbody tr');
+    
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(filter) ? '' : 'none';
+        });
+    });
+</script>
+{% endblock %}

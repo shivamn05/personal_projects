@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <h2 class="home-body">
+        <p class="home-space">Welcome to <span class="purple">Tooli</span><span class="blue">E</span> Registeration</p>
+    </h2>
+    <form action="/register" method="post">
+        <div class="mb-3">Register</div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Name of employee" type="text">
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" name="user_id" placeholder="User ID" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+    <h2 class="home-body">
+        <p class="home-space">All User ID's are 5 characters long</p>
+        <p class="home-space">To register a new employee: User ID starts with 'e'</p>
+        <p class="home-space">To register a new manager: User ID starts with 'm'</p>
+    </h2>
+{% endblock %}
