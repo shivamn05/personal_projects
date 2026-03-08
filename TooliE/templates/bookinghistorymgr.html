@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Timesheet History
+{% endblock %}
+
+{% block main %}
+<h2 class="home-body">
+    <p class="home-space">All past <span class="purple">Tooli</span><span class="blue">E</span> bookings</p>
+</h2>
+<p><input class="searchbar" type="text" id="searchInput" placeholder="Search..."></p>
+<div class="mb-3">
+    <table class="table table-hover" id="bookingHistoryTable">
+        <thead>
+            <tr>
+                <th class="text-start" scope="col">#</th>
+                <th class="text-start" scope="col">Name</th>
+                <th class="text-start" scope="col">User</th>
+                <th class="text-center" scope="col">Tool</th>
+                <th class="text-center" scope="col">Date</th>
+                <th class="text-center" scope="col">Time</th>
+                <th class="text-end" scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in history %}
+            <tr>
+                <td class="text-start">{{ loop.index }}</td>
+                <td class="text-start">{{ entry.username }}</td>
+                <td class="text-start">{{ entry.user_id }}</td>
+                <td class="text-center">{{ entry.tool_name }}</td>
+                <td class="text-center">{{ entry.date }}</td>
+                <td class="text-center">{{ entry.timeslot }}</td>
+                <td class="text-end">{{ entry.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- From ChatGPT -->
+<script>
+    document.getElementById('searchInput').addEventListener('keyup', function() {
+        const filter = this.value.toLowerCase();
+        const rows = document.querySelectorAll('#bookingHistoryTable tbody tr');
+    
+        rows.forEach(row => {
+            const text = row.textContent.toLowerCase();
+            row.style.display = text.includes(filter) ? '' : 'none';
+        });
+    });
+</script>
+{% endblock %}

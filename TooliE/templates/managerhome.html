@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    MGR Home
+{% endblock %}
+
+{% block main %}
+<h1 class="home-head">
+    WELCOME TO THE MANAGER HOME PAGE
+</h1>
+<h2 class="home-body">
+    <p class="home-space">Quick Access</p>
+    <div>
+        <button class="home-button" id="bookToolButton" href="/book">Book Tool</button>
+        <button class="home-button" id="viewTimesheetButton" href="/allbookings">View Timesheet</button>
+        <button class="home-button" id="registerEmployeeButton" href="/register">Register Employee</button>
+    </div>
+    <div>
+        <p class="home-space">Account Management</p>
+        <button class="home-button" id="viewChangeButton" href="/change">Change Password</button>
+        <button class="home-button" id="viewEmployeeButton" href="/employeelist">Employee List</button>
+    </div>
+</h2>
+
+<!-- From GitHub Copilot-->
+<script>
+    document.getElementById('bookToolButton').addEventListener('click', function() {
+        window.location.href = '/book';
+    });
+
+    document.getElementById('viewTimesheetButton').addEventListener('click', function() {
+        window.location.href = '/allbookings';
+    });
+
+    document.getElementById('registerEmployeeButton').addEventListener('click', function() {
+        window.location.href = '/register';
+    });
+
+    document.getElementById('viewEmployeeButton').addEventListener('click', function() {
+        window.location.href = '/employeelist';
+    });
+
+    document.getElementById('viewChangeButton').addEventListener('click', function() {
+        window.location.href = '/change';
+    });
+</script>
+{% endblock %}
